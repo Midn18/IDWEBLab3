@@ -10,14 +10,15 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building'
-                bat 'mvn install -DskipTests --file ./bac.kend'
+                bat 'mvn install -DskipTests --file ./backend'
                 bat 'npm install %WORKSPACE%\\frontend'
             }
         }
         stage('Testing backend'){
             steps{
                 echo 'Running backend tests'
-                bat 'mvn test --file ./backend --log-file %WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
+                bat 'mvn test --file ./backend --logger "junit"'
+                junit allowEmptyResults: true, testResults: '%WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
                 echo 'Backend tests finished execution'
             }
         }
