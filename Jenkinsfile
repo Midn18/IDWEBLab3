@@ -16,8 +16,10 @@ pipeline{
         }
         stage('TESTING_BACKEND'){
             steps{
-                echo 'Testing'
+                echo 'Running backend tests'
+                bat 'mvn test --file ./backend'
                 junit 'backend/target/surefire-reports/test-result.xml'
+                echo 'Backend tests finished execution'
             }
         }
         stage('TESTING_FRONTEND'){
