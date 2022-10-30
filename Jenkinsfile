@@ -26,7 +26,7 @@ pipeline{
                 expression { TESTING_FRONTEND == "true" }
             }
             steps{
-                echo 'Testing frontend ${TESTING_FRONTEND}'
+                echo "Testing frontend ${TESTING_FRONTEND}"
             }
         }
         stage('Delete workspace'){
