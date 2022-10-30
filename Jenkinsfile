@@ -14,10 +14,16 @@ pipeline{
                 bat 'npm install %WORKSPACE%\\frontend'
             }
         }
-        stage('Test'){
+        stage('TESTING_BACKEND'){
             steps{
                 echo 'Testing'
+                junit 'backend/target/surefire-reports/test-result.xml'
             }
+        }
+        stage('TESTING_FRONTEND'){
+            steps{
+                echo 'Testing'
+              }
         }
     }
 }
