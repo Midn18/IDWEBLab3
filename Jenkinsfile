@@ -11,7 +11,7 @@ pipeline{
             steps{
                 echo 'Building'
                 bat 'mvn install -DskipTests --file ./backend'
-                bat 'npm install --prefix ./frontend'
+                bat 'npm install %WORKSPACE%\\frontend'
             }
         }
         stage('Test'){
