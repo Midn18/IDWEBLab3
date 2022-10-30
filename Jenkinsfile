@@ -1,8 +1,8 @@
 pipeline{
     agent any
     environment{
-        ON_SUCCESS_SEND_EMAIL = true
-        ON_FAILURE_SEND_EMAIL = true
+        ON_SUCCESS_SEND_EMAIL = "true"
+        ON_FAILURE_SEND_EMAIL = "true"
     }
 
     stages{
@@ -23,7 +23,7 @@ pipeline{
         }
         stage('Testing frontend'){
             when{
-                expression { TESTING_FRONTEND == true }
+                expression { TESTING_FRONTEND == "true" }
             }
             steps{
                 echo 'Testing frontend ${TESTING_FRONTEND}'
@@ -31,7 +31,7 @@ pipeline{
         }
         stage('Delete workspace'){
             when{
-                expression { CLEAN_WORKSPACE == true }
+                expression { CLEAN_WORKSPACE == "true" }
             }
             steps{
                 deleteDir()
