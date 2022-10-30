@@ -22,9 +22,21 @@ pipeline{
             }
         }
         stage('Testing frontend'){
+            when{
+                expresion{TESTING_FRONTEND == true}
+            }
             steps{
-                echo 'Testing'
-              }
+                echo 'Testing frontend ${TESTING_FRONTEND}'
+            }
+        }
+
+        stage('Delete workspace'){
+            when{
+                expression { CLEAN_WORKSPACE == true }
+                    steps{
+                        deleteDir()
+                    }
+            }
         }
     }
 }
