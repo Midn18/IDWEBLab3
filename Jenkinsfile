@@ -17,8 +17,7 @@ pipeline{
         stage('TESTING_BACKEND'){
             steps{
                 echo 'Running backend tests'
-                bat 'mvn test --file ./backend'
-                junit 'backend/target/surefire-reports/test-result.xml'
+                bat 'mvn test --file ./backend --log-file %WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
                 echo 'Backend tests finished execution'
             }
         }
