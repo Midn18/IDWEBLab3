@@ -10,9 +10,8 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building'
-                bat 'mvn install --file ./backend'
+                bat 'mvn install -DskipTests --file ./backend'
                 bat 'ng build --prod --prefix ./frontend'
-
             }
         }
         stage('Test'){
