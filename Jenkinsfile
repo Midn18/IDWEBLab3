@@ -10,17 +10,15 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building'
-
+                bat 'mvn install --prefix ./backend'
+                bat 'mvn spring-boot:run --prefix ./backend'
+                bat 'npm install --prefix ./frontend'
+                bat 'ng serve --prefix ./frontend'
             }
         }
         stage('Test'){
             steps{
                 echo 'Testing'
-            }
-        }
-        stage('Deploy'){
-            steps{
-                echo 'Deploying'
             }
         }
     }
