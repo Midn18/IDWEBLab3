@@ -29,13 +29,12 @@ pipeline{
                 echo 'Testing frontend ${TESTING_FRONTEND}'
             }
         }
-
         stage('Delete workspace'){
             when{
                 expression { CLEAN_WORKSPACE == true }
-                    steps{
-                        deleteDir()
-                    }
+            }
+            steps{
+                deleteDir()
             }
         }
     }
