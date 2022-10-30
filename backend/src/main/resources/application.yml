@@ -3,8 +3,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: root
-    url: jdbc:postgresql://localhost/postgres
+    password: midn
+    url: jdbc:postgresql://localhost:5432/postgres
     platform: postgres
     initialization-mode: always
     continue-on-error: true
