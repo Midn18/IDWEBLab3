@@ -34,6 +34,7 @@ pipeline{
                 expression { CLEAN_WORKSPACE == "true" }
             }
             steps{
+                echo "Deleting workspace ${CLEAN_WORKSPACE}"
                 deleteDir()
             }
         }
