@@ -11,7 +11,7 @@ pipeline{
             steps{
                 echo 'Building'
                 bat 'mvn install --file ./backend'
-                bat 'ng build --prefix ./frontend'
+                bat 'ng build --prod --prefix ./frontend'
 
             }
         }
