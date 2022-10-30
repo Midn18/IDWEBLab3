@@ -17,9 +17,7 @@ pipeline{
             steps{
                 echo 'Running backend tests'
                 bat 'mvn test --file ./backend'
-                junit allowEmptyResults: true, testResults: '%WORKSPACE%\\backend\\target\\surefire-reports\\**.xml'
-              //  junit '%WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
-              //  junit allowEmptyResults: true, testResults: '%WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
+                junit allowEmptyResults: true, testResults: '**\\surefire-reports\\**.xml'
                 echo 'Backend tests finished execution'
             }
         }
