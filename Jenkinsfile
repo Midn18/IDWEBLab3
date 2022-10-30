@@ -23,7 +23,7 @@ pipeline{
         }
         stage('Testing frontend'){
             when{
-                expresion{TESTING_FRONTEND == true}
+                expresion{ TESTING_FRONTEND == true }
             }
             steps{
                 echo 'Testing frontend ${TESTING_FRONTEND}'
