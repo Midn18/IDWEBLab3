@@ -22,11 +22,6 @@ pipeline{
               //  junit allowEmptyResults: true, testResults: '%WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
                 echo 'Backend tests finished execution'
             }
-            post{
-               always{
-                  junit '%WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
-                  }
-               }
         }
         stage('Testing frontend'){
             steps{
