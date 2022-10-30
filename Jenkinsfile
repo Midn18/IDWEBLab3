@@ -38,25 +38,16 @@ pipeline{
         }
     }
     post{
-        when{
-             expression { ON_SUCCESS_SEND_EMAIL == "true" }
+        success{
+            mail body: "Build finished successfully, see ${BUILD_URL}",
+            subject: "Jenkins Build ${currentBuild.currentResult} : Job ${env.JOB_NAME} Build Number ${env.BUILD_NUMBER}",
+            to: 'mihail.danilenco18@gmail.com'
         }
-        steps{
-            success{
-                mail body: "Build finished successfully, see ${BUILD_URL}",
-                subject: "Jenkins Build ${currentBuild.currentResult} : Job ${env.JOB_NAME} Build Number ${env.BUILD_NUMBER}",
-                to: 'mihail.danilenco18@gmail.com'
-            }
-        }
-        when{
-             expression { ON_FAILURE_SEND_EMAIL == "true" }
-            }
-        steps{
-            failure{
-                mail body: "Build finished successfully, see ${BUILD_URL}",
-                subject: "Jenkins Build ${currentBuild.currentResult} : Job ${env.JOB_NAME} Build Number ${env.BUILD_NUMBER}",
-                to: 'mihail.danilenco18@gmail.com'
-            }
+    }
+        failure{
+            mail body: "Build finished successfully, see ${BUILD_URL}",
+            subject: "Jenkins Build ${currentBuild.currentResult} : Job ${env.JOB_NAME} Build Number ${env.BUILD_NUMBER}",
+            to: 'mihail.danilenco18@gmail.com'
         }
     }
 }
