@@ -11,9 +11,9 @@ pipeline{
             steps{
                 echo 'Building'
                 bat 'mvn install --file ./backend'
-                bat 'mvn spring-boot:run --file ./backend'
+
                 bat 'npm install --prefix ./frontend'
-                bat 'ng serve --prefix ./frontend'
+
             }
         }
         stage('Test'){
