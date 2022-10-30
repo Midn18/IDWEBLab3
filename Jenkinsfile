@@ -10,18 +10,18 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building'
-                bat 'mvn install -DskipTests --file ./backend'
+                bat 'mvn install -DskipTests --file ./bac.kend'
                 bat 'npm install %WORKSPACE%\\frontend'
             }
         }
-        stage('TESTING_BACKEND'){
+        stage('Testing backend'){
             steps{
                 echo 'Running backend tests'
                 bat 'mvn test --file ./backend --log-file %WORKSPACE%\\backend\\target\\surefire-reports\\TEST-backend.xml'
                 echo 'Backend tests finished execution'
             }
         }
-        stage('TESTING_FRONTEND'){
+        stage('Testing frontend'){
             steps{
                 echo 'Testing'
               }
