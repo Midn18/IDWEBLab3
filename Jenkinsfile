@@ -11,6 +11,7 @@ pipeline{
                 steps{
                     git branch:'main', url:'https://github.com/Midn18/IDWEBLab3.git'
                 }
+            }
         stage('Build'){
             steps{
                 echo 'Building'
