@@ -7,13 +7,14 @@ services:
       POSTGRES_PASSWORD: root
   backend:
     build: backend/.
-    ports: 
+    ports:
       - "8080:8080"
     depends_on:
       - db
   frontend:
-    build: frontend/.
-    ports: 
-      - "5000:5000"
-    depends_on: 
+    build:
+        context: frontend/.
+    ports:
+      - "4200:80"
+    depends_on:
       - backend
